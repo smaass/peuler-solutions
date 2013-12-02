@@ -1,8 +1,8 @@
-package smaass.peuler
+package smaass
 
 import scala.annotation.tailrec
 
-object Utils {
+package object peuler {
   
   def getPrimes = {
     def sieve(s: Stream[Int]): Stream[Int] = {
@@ -19,5 +19,4 @@ object Utils {
     }
     carryDigits(n, List())
   }
-  
 }

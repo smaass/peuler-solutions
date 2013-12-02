@@ -1,24 +1,8 @@
 package smaass.peuler
 
+import smaass.peuler.utils.Rational
+
 object P57 {
-  
-  class Rational(val n: BigInt, val d: BigInt) {
-    val gcd = n.gcd(d)
-    val num: BigInt = n/gcd
-    val den: BigInt = d/gcd
-    def + (that: Rational) = Rational(this.num*that.den + that.num*this.den, this.den * that.den)
-    override def toString = num + "/" + den
-  }
-  object Rational {
-    
-    def apply(num: Int, den: Int) = new Rational(num, den)
-    
-    def apply(num: BigInt, den: BigInt) = new Rational(num, den)
-    
-    def apply(num: BigInt, den: Rational) = new Rational(num * den.den, den.num)
-    
-    implicit def intToRational(n: Int): Rational = new Rational(n, 1)
-  }
   
   def getExpansion(n: Int): Rational = {
     def expansion(n: Int): Rational = {

@@ -2,16 +2,16 @@ package smaass.peuler
 
 object P49 {
   
-  val primes = Utils.getPrimes.dropWhile(p => p < 1000).takeWhile(p => p < 10000).toList
+  val primes = getPrimes.dropWhile(p => p < 1000).takeWhile(p => p < 10000).toList
   
   def arePermutations(nums: List[Int]): Boolean = {
     if (nums.length == 0) throw new Exception("Empty list!")
     if (nums.length == 1) true
-    val f = Utils.intToList(nums.head)
+    val f = intToList(nums.head)
     val it = nums.tail.iterator
     def checkPermutations: Boolean = {
       if (!it.hasNext) true
-      else if (arePermutations(f, Utils.intToList(it.next))) checkPermutations
+      else if (arePermutations(f, intToList(it.next))) checkPermutations
       else false
     }
     checkPermutations
